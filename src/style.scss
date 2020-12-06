@@ -187,7 +187,11 @@ padding-left: 4px;
     height: 100vh;
 }
 
-
+#page-0{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
 
 #page-1{
     height: 125vh;
@@ -754,8 +758,9 @@ color: #000000;
 
 
 .animation-big{
-    height: 500px;
-    width: 700px;
+    width: 80vw;
+    height: auto;
+    margin-left: 156px;
 
 }
 

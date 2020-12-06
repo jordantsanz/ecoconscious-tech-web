@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable max-len */
 /* eslint-disable eqeqeq */
 /* eslint-disable react/prefer-stateless-function */
@@ -13,6 +14,7 @@ import divider01 from '../images/divider01.svg';
 import divider12 from '../images/stats.svg';
 import divider23 from '../images/cloud.svg';
 import divider34 from '../images/actions.svg';
+import mainpagegif from '../images/mainpagegif.gif';
 
 class StoryPage extends Component {
   render() {
@@ -22,9 +24,7 @@ class StoryPage extends Component {
 
         {/* ----------------------------- Page 0 ------------------------------------------ */}
         <div className="flex-landing" id="page-0">
-          <div className="margin-push">
-            <div className="animation-big"> Wylie Animation </div>
-          </div>
+          <img src={mainpagegif} alt="gif" className="animation-big" />
         </div>
         <img className="divider" src={divider01} alt="divider" />
 
