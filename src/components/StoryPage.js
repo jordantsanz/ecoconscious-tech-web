@@ -12,6 +12,13 @@ class StoryPage extends Component {
       <div className="main-page">
         <Sidebar />
 
+        {/* ----------------------------- Page 0 ------------------------------------------ */}
+        <div className="flex-landing" id="page-0">
+          <div className="margin-push">
+            <div className="animation-big"> Wylie Animation </div>
+          </div>
+        </div>
+
         {/* ------------------------------ Page 1 ----------------------------------------- */}
         <div className="flex-landing" id="page-1">
           <div className="left-landing" />
