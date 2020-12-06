@@ -22,6 +22,11 @@ body{
     height: 100vh;
 }
 
+#story-main, #tools-main, #duke-main{
+    position: fixed;
+    z-index: 20;
+}
+
 #main{
     position: absolute;
     height: 100%;
@@ -369,7 +374,18 @@ padding-top: 6px;
     z-index: -2;
     position: relative;
     background-position: right;
-    height: 125vh;
+    height: 135vh;
+}
+
+.source{
+    font-family: $libre;
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 22px;
+
+color: #000000;
+margin-top: 10vh;
 }
 
 .main-landing-4{
@@ -392,6 +408,7 @@ padding-top: 6px;
     z-index: -2;
     position: relative;
     background-position: right;
+    width: 100vw;
 }
 
 .flex-tools{

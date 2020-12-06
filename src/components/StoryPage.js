@@ -17,7 +17,7 @@ import divider34 from '../images/actions.svg';
 class StoryPage extends Component {
   render() {
     return (
-      <div className="main-page">
+      <div className="main-page" id="story-main">
         <Sidebar />
 
         {/* ----------------------------- Page 0 ------------------------------------------ */}
@@ -98,6 +98,7 @@ class StoryPage extends Component {
               <div className="description" id="description-13">Unsubscribe from old newsletters you don&apos;t look at.</div>
               <div className="description" id="description-14">Shut off your computer if you&apos;re not going to use it for more than 2 hours and unplug chargers that aren&apos;t in use.</div>
             </div>
+            <div className="source">Source: <a href="climatechange.org" className="source">climatechange.org</a></div>
           </div>
         </div>
       </div>

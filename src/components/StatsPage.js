@@ -108,7 +108,7 @@ class StatsPage extends Component {
     axis.renderer.ticks.template.strokeOpacity = 1;
     axis.renderer.ticks.template.length = 10;
     axis.renderer.grid.template.disabled = true;
-    axis.renderer.labels.template.radius = 40;
+    axis.renderer.labels.template.radius = 60;
     axis.renderer.labels.template.adapter.add('text', (text) => {
       return `${text}%`;
     });
@@ -178,6 +178,11 @@ class StatsPage extends Component {
     title.fill = '#FFFFFF';
     title.background.fill = '#000000';
     title.padding(10, 10, 10, 10);
+
+    let label2 = chart.chartContainer.createChild(am4core.Label);
+    label2.text = '*Percentage of unique websites visited that are green';
+    label2.align = 'right';
+
     this.chart2 = chart;
 
     this.setState({
@@ -268,7 +273,7 @@ class StatsPage extends Component {
     title.marginBottom = 27;
     title.fontSize = 25;
     title.marginTop = 10;
-    title.text = 'Green Websites Visits Over Time:';
+    title.text = 'Green Websites Clicks Over Time:';
     title.fill = '#FFFFFF';
     title.background.fill = '#000000';
     title.fontFamily = 'Aclonica';
@@ -317,15 +322,16 @@ class StatsPage extends Component {
     let series = chart4.series.push(new am4charts.PieSeries3D());
 
     series.colors.list = [
-      am4core.color('#7000FF'),
       am4core.color('#00FF19'),
+      am4core.color('#7000FF'),
+
     ];
 
     series.dataFields.value = 'Count';
     series.dataFields.category = 'Green';
 
     let title = chart4.titles.create();
-    title.text = 'Green Sites Visited Today:';
+    title.text = 'Click on Green Sites Visited Today:';
     title.fontSize = 25;
     title.marginBottom = 30;
     title.marginTop = 30;
