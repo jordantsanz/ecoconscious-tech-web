@@ -15,7 +15,6 @@ body{
     margin: 0px;
     padding: 0px;
     font-family: 'Libre Franklin', sans-serif;
-    overflow-x: hidden;
 }
 
 #main{
@@ -61,6 +60,7 @@ body{
     width: 124px;
     height: 1132px;
     border-right: 4px dashed #7000FF;
+    z-index: 20;
 }
 
 .left-landing{
@@ -385,16 +385,8 @@ margin-top: 11px;
     background-image: url("images/Vector\ 6.svg");
     height: 100vh;
     width: 124px;
-}
-
-.main-green-bar{
-    position: fixed;
-    width: 120px;
-    height: 103vh;
-    left: 0px;
-    background-color: $green;
-    top: -20px;
-    clip-path: polygon(0 0, 38% 9%, 37% 91%, 0% 100%);
+    z-index: -1;
+    position: absolute
 }
 
 .sidebar-green{
@@ -404,5 +396,51 @@ margin-top: 11px;
     border-right: 4px dashed $green;
 }
 
+.slide {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 400vw;
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+    overflow-x: hidden;
+  }
+
+  .one {
+    background: url("images/Component\ 1.svg");
+    background-size: auto 100vh;
+    background-repeat: repeat-x;
+    width: 400vw;
+    margin-left: 230px;
+  }
+  .outer-wrapper {
+    width: 100vw;
+    height: 100vh;
+    transform: rotate(-90deg) translateX(-100vh);
+    transform-origin: top left;
+    position: absolute;
+    z-index: -4;
+  }
+ // ::-webkit-scrollbar { display: none; }
 
 
+#chartdiv1{
+left: 290px;
+top: 75px;  // 290       
+position: absolute;
+background-color: white;
+border-radius: 10px;
+}
+
+#chartdiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+}
