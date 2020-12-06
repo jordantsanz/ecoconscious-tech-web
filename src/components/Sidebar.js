@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Login from './Login';
 import Logout from './Logout';
+import logo from '../images/logo.png';
 
 class Sidebar extends Component {
     checkLog = () => {
@@ -24,7 +25,7 @@ class Sidebar extends Component {
         <div className="sidebar">
           <div className="main-purple-bar" />
           <div className="button-group-top">
-            <div className="logo">logo</div>
+            <img src={logo} alt="logo" className="logo" />
             <NavLink to="/">
               <button type="button" className="button-light">The Story</button>
             </NavLink>
