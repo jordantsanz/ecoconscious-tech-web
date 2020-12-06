@@ -76,7 +76,7 @@ class StoryPage extends Component {
               <div className="title-landing-top">cloud - <span className="title-landing-bottom">of emissions.</span></div>
             </div>
             <div className="description-landing">
-              <div className="description" id="description-8">The informations communications and technoloy industry produces more than 830 million tons of carbon dioxide each year.</div>
+              <div className="description" id="description-8">The informations communications and technology industry produces more than 830 million tons of carbon dioxide each year.</div>
               <div className="description" id="description-9"><span className="bold-black">That’s ~2% of global carbon emissions.</span></div>
               <div className="description" id="description-10">The U.S. is the largest consumer of data center power.</div>
             </div>
