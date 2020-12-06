@@ -31,7 +31,7 @@ export function getAllWebsites() {
   });
 }
 // get all websites for one user
-export function getAllWebsitesByUser(username, cb, cbb, cbbb) {
+export function getAllWebsitesByUser(username, cb) {
   console.log(username);
   db.collection('users').doc(username).get().then((doc) => {
     if (doc.exists) {
