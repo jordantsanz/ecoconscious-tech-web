@@ -821,9 +821,10 @@ class StatsPage extends Component {
   columnChart = (webArray) => {
     let greenNum = 0;
     let currentTime = new Date();
-    console.log(currentTime);
+    let currentDate = db.splitDate(currentTime.toString());
+    console.log(currentDate);
     for (let i = 0; i < 4; i++) {
-      console.log(webArray[i].timestamp.toDate());
+      console.log(db.splitDate(webArray[i].timestamp.toDate().toString()));
     }
     let chart4 = am4core.create('chartdiv4', am4charts.PieChart3D);
     chart4.hiddenState.properties.opacity = 0; // this creates initial fade-in

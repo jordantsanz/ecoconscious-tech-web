@@ -15,6 +15,12 @@ const firebaseApp = firebase.initializeApp({
 
 const db = firebaseApp.firestore();
 
+export function splitDate(string) {
+  let splitArray = string.split(' ');
+  let date = [splitArray[0], splitArray[1], splitArray[2], splitArray[3]];
+  return date.join(' ');
+}
+
 // get all websites
 export function getAllWebsites() {
   db.collection('website').get().then((querySnapshot) => {
