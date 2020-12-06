@@ -904,7 +904,7 @@ class StatsPage extends Component {
         return (
           <div className="top-result">
             <div className="website">{this.state.mainkey}</div>
-            <div className="is"><span className="bold-black">is</span></div>
+            <div className="is"><span className="bold-black-new">is</span></div>
             <div className="box green"><span className="flexspan">GREEN</span></div>
           </div>
         );
@@ -912,7 +912,7 @@ class StatsPage extends Component {
         return (
           <div className="top-result">
             <div className="website">{this.state.mainkey}</div>
-            <div className="is"><span className="bold-black">is</span></div>
+            <div className="is"><span className="bold-black-new">is</span></div>
             <div className="box notgreen"><span className="flexspan">NOT GREEN</span></div>
           </div>
         );
