@@ -2,6 +2,9 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import Sidebar from './Sidebar';
+import computer from '../images/computer.png';
+import leaf from '../images/leaf.png';
+import dukedivider from '../images/duke.svg';
 
 class HackDukePage extends Component {
   render() {
@@ -10,7 +13,7 @@ class HackDukePage extends Component {
         <Sidebar />
         <div className="flexDuke" id="duke">
           <div className="inner-flex">
-            <div className="animation" />
+            <img id="hackduke-image-1" src={computer} className="animation" alt="computer" />
             <div className="duke-title">We&apos;re not exempt.</div>
             <div id="duke-d1">During HackDuke,  each participating hacker used an average of <span className="bold-black">225 kWh </span> during the 30 hours of this hackathon, emitting 0.22 kg of C02.
 
@@ -18,8 +21,9 @@ class HackDukePage extends Component {
             <div id="duke-d2">Together, the 321 hackers at HackDuke <span className="bold-black"> emmitted 70.36 kg of carbon from power supply alone. </span> That doesn’t include the cost of running servers or cloud services that we may have used to support our projects! </div>
           </div>
         </div>
+        <img className="divider" src={dukedivider} alt="divider" />
         <div className="flexDuke" id="duke2">
-          <div className="animation" />
+          <img className="animation" id="hackduke-image-2" src={leaf} alt="leaf" />
           <div className="inner-flex-2">
             <div className="duke-title-upper">We can and must</div>
             <div className="duke-title" id="duke-title-2">take action.</div>

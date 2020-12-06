@@ -8,6 +8,11 @@ import Sidebar from './Sidebar';
 import www from '../images/www.png';
 import googlebucks from '../images/googlebucks.png';
 import servers from '../images/servers.png';
+import flower from '../images/flower.png';
+import divider01 from '../images/divider01.svg';
+import divider12 from '../images/stats.svg';
+import divider23 from '../images/cloud.svg';
+import divider34 from '../images/actions.svg';
 
 class StoryPage extends Component {
   render() {
@@ -21,6 +26,7 @@ class StoryPage extends Component {
             <div className="animation-big"> Wylie Animation </div>
           </div>
         </div>
+        <img className="divider" src={divider01} alt="divider" />
 
         {/* ------------------------------ Page 1 ----------------------------------------- */}
         <div className="flex-landing" id="page-1">
@@ -40,6 +46,7 @@ class StoryPage extends Component {
             </div>
           </div>
         </div>
+        <img className="divider" src={divider12} alt="divider" />
 
         {/* ------------------------------------ Page 2 --------------------------------------- */}
         <div className="flex-landing" id="page-2">
@@ -57,6 +64,7 @@ class StoryPage extends Component {
             </div>
           </div>
         </div>
+        <img className="divider" src={divider23} alt="divider" />
 
         {/* --------------------------------------- Page 3 ------------------------------------- */}
 
@@ -74,11 +82,12 @@ class StoryPage extends Component {
             </div>
           </div>
         </div>
+        <img className="divider" src={divider34} alt="divider" />
 
         {/* ------------------------------------------- Page 4 --------------------------------------*/}
         <div className="flex-landing" id="page-4">
           <div className="main-landing-4">
-            <div className="animation-landing" />
+            <img className="animation-landing" src={flower} alt="flower growing out of footprint" id="page-4-image" />
             <div className="title-landing" id="page-4-title">
               <div className="title-landing-top" id="page-4-title-top">You&apos;ve got a footprint</div>
               <div className="title-landing-bottom">- take these steps.</div>

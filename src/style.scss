@@ -88,8 +88,8 @@ body{
 }
 
 .button-light{
-width: 228px;
-height: 63px;
+    width: 120px;
+    height: 48px;
 background: #FFFFFF;
 border: 4px solid #000000;
 box-sizing: border-box;
@@ -99,11 +99,11 @@ margin-bottom: 3.2vh;
 font-family: Libre Franklin;
 font-style: normal;
 font-weight: normal;
-font-size: 24px;
+font-size: 18px;
 line-height: 29px;
+padding-left: 4px;
 
 color: #000000;
-text-align: left;
 }
 
 .title-landing-bottom{
@@ -144,8 +144,8 @@ margin-left: -5px;
 }
 
 .button-dark{
- width: 228px;
-height: 63px;
+width: 120px;
+height: 48px;
 background: #000000;
 border: 4px solid #FFFFFF;
 box-sizing: border-box;
@@ -155,11 +155,11 @@ margin-bottom: 3.2vh;
 font-family: Libre Franklin;
 font-style: normal;
 font-weight: normal;
-font-size: 24px;
+font-size: 18px;
 line-height: 29px;
 
 color: #FFFFFF;
-text-align: left;
+padding-left: 4px;
 }
 
 .logo{
@@ -178,9 +178,6 @@ text-align: left;
     height: 100vh;
 }
 
-#page-1, #page-2, #page-3, #page-4{
-    height: 100%;
-}
 
 
 #page-1{
@@ -204,10 +201,6 @@ text-align: left;
 font-family: $aclon;
 font-style: normal;
 font-weight: normal;
-font-size: 72px;
-font-family: $aclon;
-font-style: normal;
-font-weight: normal;
 font-size: 48px;
 line-height: 120.33%;
 padding-left: 20px;
@@ -227,12 +220,24 @@ color: #000000;
     padding: 5px;
 }
 
+#page-1, #page-2, #page-3, #page-4{
+    margin-top: -5px;
+}
+
 #page-1-image, #page-2-image, #page-3-image, #page-4-image{
     width: 400px;
 }
 
+#tools-page-1-image, #tools-page-2-image{
+    width: 250px;
+}
+
 #page-2{
     height: 125vh;
+}
+
+#hackduke-image-1, #hackduke-image-2{
+    width: 400px;
 }
 
 .description{
@@ -360,6 +365,7 @@ padding-top: 6px;
     z-index: -2;
     position: relative;
     background-position: right;
+    height: 125vh;
 }
 
 .main-landing-4{
@@ -439,18 +445,9 @@ margin-top: 11px;
     margin-top: 20px;
 }
 
-.animation{
-    width: 216px;
-    height: 121px;
-}
-
 
 /********************************* stats page ***************************/ 
 
-
-.green{
-    clip-path: polygon(0 0, 38% 24%, 37% 79%, 0% 100%);
-}
 
 .green-bar{
     margin-left: 120px;
@@ -476,7 +473,7 @@ margin-top: 11px;
   .wrapper {
     display: flex;
     flex-direction: row;
-    width: 400vw;
+    width: 285vw;
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
     overflow-x: hidden;
@@ -486,8 +483,8 @@ margin-top: 11px;
     background: url("images/Component\ 1.svg");
     background-size: auto 100vh;
     background-repeat: repeat-x;
-    width: 400vw;
-    margin-left: 230px;
+    width: 285vw;
+    margin-left: 100px;
   }
   .outer-wrapper {
     width: 100vw;
@@ -500,7 +497,7 @@ margin-top: 11px;
  // ::-webkit-scrollbar { display: none; }
 
 
-#chartdiv, #chartdiv3, #chartdiv4{
+#chartdiv, #chartdiv3, #chartdiv4, #chartdiv5{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -511,6 +508,11 @@ margin-top: 11px;
 background: #FFFFFF;
 border: 4px solid #000000;
 box-shadow: 8px 8px 0px #000000;
+}
+
+#chartdiv5{
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 
@@ -524,6 +526,90 @@ box-shadow: 8px 8px 0px #000000;
     width: max-content;
 }
 
+.top-result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.title-black{
+    font-family: $aclon;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 41px;
+text-align: center;
+background-color: black;
+color: #FFFFFF;
+width: 311px;
+height: 74px;
+margin-top: 10px;
+padding: 10px;
+}
+
+.website{
+    font-family: $libre;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #000000;
+}
+
+.is{
+font-family: $aclon;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 27px;
+text-align: center;
+
+color: #000000;
+}
+
+.box{
+    width: 179px;
+    height: fit-content;
+    padding: 5px;
+    background: #FFFFFF;
+    border: 4px solid #000000;
+    box-sizing: border-box;
+    /* 8Shadow */
+    
+    box-shadow: 8px 8px 0px #000000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.green{
+color: $green;
+font-family: $aclon;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 41px;
+text-align: center;
+}
+
+.notgreen{
+color: $purple;
+font-family: $aclon;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 41px;
+text-align: center;
+}
+
+
+
+
 
 /********************************************* HackDuke Page **********************/
 
@@ -531,8 +617,8 @@ box-shadow: 8px 8px 0px #000000;
     background-image: url("images/Green\ with\ Purple\ Wave.svg");
     z-index: -2;
     position: relative;
-    height: 100%;
     background-position: top;
+    height: 115vh;
 }
 
 #duke-d3, #duke-d4, #duke-d5, #duke-d6{
@@ -547,11 +633,16 @@ color: #000000;
 }
 
 #duke2{
-    height: 100%;
+    height: 130vh;
     position: relative;
     z-index: -2;
     background-image: url("images/Component\ 7.svg");
     background-position: left;
+}
+
+#hackduke-image-2{
+    margin-left: 700px;
+    margin-top: 50px;
 }
 
 .inner-flex{
@@ -583,7 +674,6 @@ margin-left: 40px;
 font-family: $aclon;
 font-style: normal;
 font-weight: normal;
-margin-top: 100px;
 font-size: 48px;
 line-height: 120.33%;
 /* or 58px */

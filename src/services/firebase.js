@@ -1,3 +1,7 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
+/* eslint-disable no-unused-vars */
+/* eslint-disable prefer-const */
 import firebase from 'firebase';
 
 const firebaseApp = firebase.initializeApp({
@@ -21,12 +25,20 @@ export function getAllWebsites() {
   });
 }
 // get all websites for one user
-export function getAllWebsitesByUser(username) {
-  db.collection('users').doc(username).get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, ' => ', doc.data());
-    });
+export function getAllWebsitesByUser(username, cb, cbb, cbbb) {
+  console.log(username);
+  db.collection('users').doc(username).get().then((doc) => {
+    if (doc.exists) {
+      const webArray = doc.data().websites.map((webRef) => {
+        console.log(webRef);
+        return db.doc(`website/${webRef}`).get().then((res) => {
+          return res.data();
+        });
+      });
+      cb(webArray);
+    } else {
+      return [];
+    }
   });
 }
 

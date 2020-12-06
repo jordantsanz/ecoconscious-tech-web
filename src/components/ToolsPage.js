@@ -2,6 +2,8 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import Sidebar from './Sidebar';
+import terminal from '../images/terminal.png';
+import magnify from '../images/magnify.png';
 
 class ToolsPage extends Component {
   render() {
@@ -11,7 +13,7 @@ class ToolsPage extends Component {
         <div className="flex-tools" id="tools">
           <div className="column-flex">
             <div className="vscode-column">
-              <div className="animation" />
+              <img src={terminal} alt="terminal on computer" className="animation" id="tools-page-1-image" />
               <div className="title-column">CPU + Energy Monitor</div>
               <div className="description-column">
                 <div className="description" id="description-col-1">Have you ever wondered how much your code takes a toll on the environment? </div>
@@ -20,7 +22,7 @@ class ToolsPage extends Component {
             </div>
 
             <div className="chrome-column">
-              <div className="animation" />
+              <img src={magnify} alt="magnifying glass" id="tools-page-2-image" className="animation" />
               <div className="title-column">Green Web Extension</div>
               <div className="description-column">
                 <div className="description" id="description-col-3">How well do you know the websites you visit and their impact on our climate?</div>

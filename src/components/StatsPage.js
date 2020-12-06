@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unused-state */
+/* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-plusplus */
 /* eslint-disable prefer-const */
@@ -7,15 +9,36 @@ import React, { Component } from 'react';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+import { connect } from 'react-redux';
+import { Map } from 'immutable';
+// import db from '../services/firebase';
+import * as db from '../services/firebase';
 import Sidebar from './Sidebar';
 
 am4core.useTheme(am4themes_animated);
 
 class StatsPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      gauge: false,
+      line: false,
+      pie: false,
+      top: false,
+      mainkey: '',
+      max: '',
+      green: '',
+    };
+  }
+
   componentDidMount() {
-    this.makeGauge();
-    this.websitesOverTimeLine();
-    this.columnChart();
+
+  }
+
+  async componentDidUpdate() {
+    if (this.props.name != '') {
+      db.getAllWebsitesByUser(this.props.email, this.dataVis);
+    }
   }
 
   componentWillUnmount() {
@@ -28,10 +51,43 @@ class StatsPage extends Component {
     if (this.chart4) {
       this.chart.dispose();
     }
+    if (this.chart5) {
+      this.chart.dispose();
+    }
   }
 
-  makeGauge = () => {
+  dataVis = (webArray) => {
+    Promise.all(webArray).then((array) => {
+      if (!this.state.gauge) {
+        this.makeGauge(array);
+      }
+      if (!this.state.line) {
+        this.websitesOverTimeLine(array);
+      }
+      if (!this.state.pie) {
+        this.columnChart(array);
+      }
+      if (!this.state.top) {
+        this.topChart(array);
+      }
+    });
+  }
+
+  makeGauge = (webArray) => {
     // Create chart
+    let totalNum = 0;
+    const set = new Set();
+    let greenNum = 0;
+    for (let i = 0; i < webArray.length; i++) {
+      if (!set.has(webArray[i].website)) {
+        set.add(webArray[i].website);
+        if (webArray[i].green) {
+          greenNum += 1;
+        }
+        totalNum += 1;
+      }
+    }
+    const percentGreen = Math.round((greenNum / totalNum) * 100);
     let chart = am4core.create('chartdiv', am4charts.GaugeChart);
     chart.innerRadius = am4core.percent(82);
 
@@ -86,10 +142,10 @@ class StatsPage extends Component {
  */
     let hand = chart.hands.push(new am4charts.ClockHand());
     hand.axis = axis2;
-    hand.innerRadius = am4core.percent(20);
+    hand.innerRadius = am4core.percent(25);
     hand.startWidth = 10;
     hand.pin.disabled = true;
-    hand.value = 50;
+    hand.value = percentGreen;
 
     let label = chart.radarContainer.createChild(am4core.Label);
     label.isMeasured = false;
@@ -121,6 +177,10 @@ class StatsPage extends Component {
     title.background.fill = '#000000';
     title.padding(10, 10, 10, 10);
     this.chart2 = chart;
+
+    this.setState({
+      gauge: true,
+    });
   }
 
   websitesOverTimeLine = () => {
@@ -744,9 +804,8 @@ class StatsPage extends Component {
     dateAxis.keepSelection = true;
 
     let title = chart.titles.create();
-    title.marginBottom = 10;
+    title.marginBottom = 27;
     title.fontSize = 25;
-
     title.marginTop = 10;
     title.text = 'Percent Green Websites Visited Over Time:';
     title.fill = '#FFFFFF';
@@ -754,9 +813,17 @@ class StatsPage extends Component {
     title.fontFamily = 'Aclonica';
     title.padding(10, 10, 10, 10);
     this.chart = chart;
+    this.setState({
+      line: true,
+    });
   }
 
-  columnChart = () => {
+  columnChart = (webArray) => {
+    let greenNum = 0;
+    let currentTime = new Date();
+    // for (let i = 0; i < webArray.length; i++) {
+    //   console.log(webArray[i].timestamp);
+    // }
     let chart4 = am4core.create('chartdiv4', am4charts.PieChart3D);
     chart4.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
@@ -792,27 +859,96 @@ class StatsPage extends Component {
     }];
     this.chart4 = chart4;
     chart4.data = data;
+    this.setState({
+      pie: true,
+    });
   }
 
-  render() {
-    return (
-      <div id="stats-page">
+  topChart = (array) => {
+    let allSitesObj = {};
+    for (let i = 0; i < array.length; i++) {
+      if (allSitesObj[array[i].website] != undefined) {
+        allSitesObj[array[i].website].count += 1;
+      } else {
+        allSitesObj[array[i].website] = {
+          count: 1,
+          green: array[i].green,
+        };
+      }
+    }
+    let mainKey;
+    let max = 0;
+    let green = false;
+    for (const [key, value] of Object.entries(allSitesObj)) {
+      if (value.count > max) {
+        max = value.count;
+        mainKey = key;
+        green = value.green;
+      }
+    }
+    if (green) {
+      green = 'is';
+    }
+    this.setState({
+      max,
+      mainkey: mainKey,
+      green,
+      top: true,
+    });
+  }
 
-        <Sidebar />
-        <div className="green-bar" />
-        <div className="outer-wrapper">
-          <div className="wrapper">
-            <div className="slide one" />
+    topRender = () => {
+      if (!this.state.top) {
+        return <div className="blank" />;
+      } else if (this.state.green) {
+        return (
+          <div className="top-result">
+            <div className="website">{this.state.mainkey}</div>
+            <div className="is"><span className="bold-black">is</span></div>
+            <div className="box green"><span className="flexspan">GREEN</span></div>
+          </div>
+        );
+      } else {
+        return (
+          <div className="top-result">
+            <div className="website">{this.state.mainkey}</div>
+            <div className="is"><span className="bold-black">is</span></div>
+            <div className="box notgreen"><span className="flexspan">NOT GREEN</span></div>
+          </div>
+        );
+      }
+    }
+
+    render() {
+      return (
+        <div id="stats-page">
+
+          <Sidebar />
+          <div className="outer-wrapper">
+            <div className="wrapper">
+              <div className="slide one" />
+            </div>
+          </div>
+          <div className="charts">
+            <div id="chartdiv" />
+            <div id="chartdiv3" />
+            <div id="chartdiv4" />
+            <div id="chartdiv5">
+              <div className="title-black">
+                Your most visited site
+              </div>
+              {this.topRender()}
+            </div>
           </div>
         </div>
-        <div className="charts">
-          <div id="chartdiv" />
-          <div id="chartdiv3" />
-          <div id="chartdiv4" />
-        </div>
-      </div>
-    );
-  }
+      );
+    }
 }
-
-export default StatsPage;
+function mapStateToProps(reduxState) {
+  return {
+    // address: reduxState.address,
+    name: reduxState.user.name,
+    email: reduxState.user.email,
+  };
+}
+export default connect(mapStateToProps, null)(StatsPage);

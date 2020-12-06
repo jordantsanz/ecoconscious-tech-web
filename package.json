@@ -39,14 +39,15 @@
     "surge": "^0.21.7",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
-    "webpack-merge": "^5.4.0",
-    "webpack-dev-server": "^3.5.1"
+    "webpack-dev-server": "^3.5.1",
+    "webpack-merge": "^5.4.0"
   },
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.12",
     "axios": "^0.21.0",
     "firebase": "^8.1.2",
     "firebase-admin": "^9.4.1",
+    "immutable": "^4.0.0-rc.12",
     "jquery": "^3.5.1",
     "lodash.debounce": "^4.0.8",
     "react": "^17.0.1",

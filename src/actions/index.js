@@ -6,7 +6,7 @@ export const ActionTypes = {
 export function logInUser(userProfileObj) {
   console.log(userProfileObj);
   return (dispatch) => {
-    dispatch({ type: ActionTypes.LOG_IN, payload: userProfileObj.name });
+    dispatch({ type: ActionTypes.LOG_IN, payload: userProfileObj });
   };
 }
 

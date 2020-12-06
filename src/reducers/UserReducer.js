@@ -5,21 +5,18 @@ const initialState = {
 };
 
 const userReducer = (state = initialState, action) => {
-  console.log('hello', action.payload);
-
   switch (action.type) {
     case ActionTypes.LOG_IN:
-      console.log('ohoh');
       return {
-        name: action.payload,
+        name: action.payload.name, email: action.payload.email,
       };
     case ActionTypes.LOG_OUT:
       return {
-        name: initialState.name,
+        name: initialState.name, email: initialState.email,
       };
     default:
       return {
-        name: initialState.name,
+        name: initialState.name, email: initialState.email,
       };
   }
 };
