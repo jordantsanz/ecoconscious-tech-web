@@ -30,7 +30,7 @@ export function getAllWebsitesByUser(username, cb, cbb, cbbb) {
   db.collection('users').doc(username).get().then((doc) => {
     if (doc.exists) {
       const webArray = doc.data().websites.map((webRef) => {
-        console.log(webRef);
+        // console.log(webRef);
         return db.doc(`website/${webRef}`).get().then((res) => {
           return res.data();
         });
