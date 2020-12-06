@@ -37,13 +37,16 @@
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "surge": "^0.21.7",
-    "webpack": "^5.10.0",
-    "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-merge": "^5.4.0",
+    "webpack-dev-server": "^3.5.1"
   },
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.12",
     "axios": "^0.21.0",
+    "firebase": "^8.1.2",
+    "firebase-admin": "^9.4.1",
     "jquery": "^3.5.1",
     "lodash.debounce": "^4.0.8",
     "react": "^17.0.1",
@@ -54,6 +57,7 @@
     "react-router-dom": "^5.2.0",
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "webpack-dev-server": "^3.11.0"
   }
 }
