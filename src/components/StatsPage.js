@@ -22,6 +22,12 @@ class StatsPage extends Component {
     if (this.chart) {
       this.chart.dispose();
     }
+    if (this.chart2) {
+      this.chart.dispose();
+    }
+    if (this.chart4) {
+      this.chart.dispose();
+    }
   }
 
   makeGauge = () => {
@@ -67,13 +73,13 @@ class StatsPage extends Component {
     range0.value = 0;
     range0.endValue = 50;
     range0.axisFill.fillOpacity = 1;
-    range0.axisFill.fill = colorSet.getIndex(0);
+    range0.axisFill.fill = am4core.color('#00FF19');
 
     let range1 = axis2.axisRanges.create();
     range1.value = 50;
     range1.endValue = 100;
     range1.axisFill.fillOpacity = 1;
-    range1.axisFill.fill = colorSet.getIndex(2);
+    range1.axisFill.fill = am4core.color('#7000FF');
 
     /**
  * Label
@@ -111,6 +117,10 @@ class StatsPage extends Component {
     title.fontSize = 25;
     title.marginTop = 30;
     title.fontFamily = 'Aclonica';
+    title.fill = '#FFFFFF';
+    title.background.fill = '#000000';
+    title.padding(10, 10, 10, 10);
+    this.chart2 = chart;
   }
 
   websitesOverTimeLine = () => {
@@ -695,14 +705,17 @@ class StatsPage extends Component {
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
     dateAxis.title.text = 'Date';
-    valueAxis.title.text = 'Percent Green Websites Visited';
+    valueAxis.title.text = 'Percent Green Websites Visited:';
 
     // Create series
     let series = chart.series.push(new am4charts.LineSeries());
     series.dataFields.valueY = 'value';
     series.dataFields.dateX = 'date';
     series.tooltipText = '{value}';
+    series.tooltip.getFillFromObject = false;
+    series.tooltip.background.fill = am4core.color('#7000FF');
     series.strokeWidth = 2;
+    series.stroke = am4core.color('#00FF19');
 
     // Drop-shaped tooltips
     series.tooltip.background.cornerRadius = 20;
@@ -717,7 +730,7 @@ class StatsPage extends Component {
     let bullet = series.bullets.push(new am4charts.CircleBullet());
     bullet.circle.strokeWidth = 2;
     bullet.circle.radius = 4;
-    bullet.circle.fill = am4core.color('#fff');
+    bullet.circle.fill = am4core.color('#7000FF');
 
     let bullethover = bullet.states.create('hover');
     bullethover.properties.scale = 1.3;
@@ -733,9 +746,14 @@ class StatsPage extends Component {
     let title = chart.titles.create();
     title.marginBottom = 10;
     title.fontSize = 25;
+
     title.marginTop = 10;
-    title.text = 'Percent Green Websites Visited Over Time';
+    title.text = 'Percent Green Websites Visited Over Time:';
+    title.fill = '#FFFFFF';
+    title.background.fill = '#000000';
     title.fontFamily = 'Aclonica';
+    title.padding(10, 10, 10, 10);
+    this.chart = chart;
   }
 
   columnChart = () => {
@@ -755,11 +773,14 @@ class StatsPage extends Component {
     series.dataFields.category = 'Green';
 
     let title = chart4.titles.create();
-    title.text = 'Green Sites Visited Today';
+    title.text = 'Green Sites Visited Today:';
     title.fontSize = 25;
     title.marginBottom = 30;
     title.marginTop = 30;
     title.fontFamily = 'Aclonica';
+    title.fill = '#FFFFFF';
+    title.background.fill = '#000000';
+    title.padding(10, 10, 10, 10);
 
     let data = [{
       Green: 'Not Green',

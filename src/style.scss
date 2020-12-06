@@ -56,7 +56,7 @@ body{
     width: 120px;
     height: 1132px;
     left: 0px;
-    background-color: $purple;
+    background-color: black;
     top: -59px;
 }
 
@@ -64,7 +64,7 @@ body{
     position: fixed;
     width: 124px;
     height: 1132px;
-    border-right: 4px dashed #7000FF;
+    border-right: 4px dashed black;
     z-index: 20;
 }
 
@@ -121,6 +121,26 @@ box-shadow: 8px 8px 0px #000000;
 height: fit-content;
 margin-bottom: 3px;
 margin-left: -5px;
+}
+
+.button-light:hover{
+    box-shadow: 8px 8px 0px $green;
+    background: black;
+    cursor: pointer;
+    color: white;
+}
+.button-dark:hover{
+    box-shadow: 8px 8px 0px $purple;
+    background: white;
+    cursor: pointer;
+}
+
+.button-light, .button-dark{
+    transition: all ease 200ms;
+}
+
+.button-dark:hover{
+    color: black;
 }
 
 .button-dark{
@@ -478,11 +498,12 @@ margin-top: 11px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    border-radius: 10px;
     margin: 20px;
     width: 700px;
     height: 500px;
+background: #FFFFFF;
+border: 4px solid #000000;
+box-shadow: 8px 8px 0px #000000;
 }
 
 
@@ -504,12 +525,39 @@ margin-top: 11px;
     z-index: -2;
     position: relative;
     height: 100%;
+    background-position: top;
+}
+
+#duke-d3, #duke-d4, #duke-d5, #duke-d6{
+    margin-top: 30px;
+    font-family: Libre Franklin;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 22px;
+
+color: #000000;
+}
+
+#duke2{
+    height: 100%;
+    position: relative;
+    z-index: -2;
+    background-image: url("images/Component\ 7.svg");
+    background-position: left;
 }
 
 .inner-flex{
     margin-left: 330px;
     display: flex;
     flex-direction: column;
+}
+
+.inner-flex-2{
+    display: flex;
+    margin-left: 700px;
+    flex-direction: column;
+    width: fit-content;
 }
 
 #duke-d1, #duke-d2{
@@ -538,6 +586,7 @@ width: fit-content;
 height: 54px;
 background: #FFFFFF;
 border: 4px solid #000000;
+padding: 5px;
 box-sizing: border-box;
 box-shadow: 8px 8px 0px #000000;
 height: fit-content;
@@ -545,6 +594,23 @@ margin-bottom: 3px;
 margin-left: -5px;
 color: #000000;
 }
+#duke-title-2.duke-title{
+    margin-top: 10px;
+
+}
+
+.duke-title-upper{
+    font-family: Aclonica;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 120.33%;
+    /* or 58px */
+    
+    
+    color: #000000;
+}
+
 
 .animation-big{
     height: 500px;
