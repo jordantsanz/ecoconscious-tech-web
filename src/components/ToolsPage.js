@@ -14,10 +14,10 @@ class ToolsPage extends Component {
           <div className="column-flex">
             <div className="vscode-column">
               <img src={terminal} alt="terminal on computer" className="animation" id="tools-page-1-image" />
-              <div className="title-column">CPU + Energy Monitor</div>
+              <div className="title-column">Carbon Emissions Monitor</div>
               <div className="description-column">
                 <div className="description" id="description-col-1">Have you ever wondered how much your code takes a toll on the environment? </div>
-                <div className="description" id="description-col-2">Download our <a href="https://github.com/catherinedparnell/ecoconscious-tech-vsc" className="bold-black">VSCode extension</a> to add a live CPU monitor, power usage, carbon emissions calculator on your toolbar.</div>
+                <div className="description" id="description-col-2">Download our <a href="https://github.com/catherinedparnell/ecoconscious-tech-vsc" className="bold-black">VSCode extension</a> to add a live carbon emissions calculator on your toolbar.</div>
               </div>
             </div>
 
@@ -27,7 +27,7 @@ class ToolsPage extends Component {
               <div className="description-column">
                 <div className="description" id="description-col-3">How well do you know the websites you visit and their impact on our climate?</div>
                 <div className="description" id="description-col-4">
-                  Download our <a href="https://github.com/catherinedparnell/ecoconscious-tech-chrome" className="bold-black"> Chrome extension</a> to add a green-hosting indicator to your browser bar. The bubble will be green if it’s hosted sustainably or gray if it is not/there is not data available.
+                  Download our <a href="https://github.com/catherinedparnell/ecoconscious-tech-chrome" className="bold-black"> Chrome extension</a> to add a green-hosting indicator to your browser bar. The bubble will be green if it’s hosted with renewable energy.
                 </div>
               </div>
             </div>
