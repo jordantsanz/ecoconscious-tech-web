@@ -331,7 +331,7 @@ class StatsPage extends Component {
     series.dataFields.category = 'Green';
 
     let title = chart4.titles.create();
-    title.text = 'Click on Green Sites Visited Today:';
+    title.text = 'Clicks on Green Sites Visited Today:';
     title.fontSize = 25;
     title.marginBottom = 30;
     title.marginTop = 30;
@@ -405,7 +405,7 @@ class StatsPage extends Component {
       return (
         <div id="stats-page">
 
-          <Sidebar />
+          <Sidebar story={false} />
           <div className="outer-wrapper">
             <div className="wrapper">
               <div className="slide one" />

@@ -10,7 +10,9 @@
     "clean": "rimraf dist",
     "windeploy": "yarn winbuild & surge -p dist -d .surge.sh & yarn clean",
     "license": "MIT",
-    "start": "NODE_ENV=development webpack-dev-server"
+    "build": "yarn clean; NODE_ENV=production webpack --colors",
+    "start": "NODE_ENV=development webpack-dev-server",
+    "deploy": "yarn build; surge -p dist -d ecoconscioustech.surge.sh; yarn clean"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

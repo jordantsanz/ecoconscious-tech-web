@@ -7,7 +7,7 @@ import Login from './Login';
 import Logout from './Logout';
 import logo from '../images/logo.png';
 
-class Sidebar extends Component {
+class StorySidebar extends Component {
     checkLog = () => {
       if (this.props.name != '') {
         return (
@@ -26,9 +26,9 @@ class Sidebar extends Component {
           <div className="main-purple-bar" />
           <div className="button-group-top">
             <img src={logo} alt="logo" className="logo" />
-            <NavLink to="/">
-              <button type="button" onClick={this.scrollOrNav} className="button-light">The Story</button>
-            </NavLink>
+            {/* <NavLink to="/"> */}
+            <button type="button" onClick={this.props.scroll} className="button-light">The Story</button>
+            {/* </NavLink> */}
             <NavLink to="/tools">
               <button type="button" className="button-light">The Tools</button>
             </NavLink>
@@ -54,4 +54,4 @@ function mapStateToProps(reduxState) {
     name: reduxState.user.name,
   };
 }
-export default connect(mapStateToProps, null)(Sidebar);
+export default connect(mapStateToProps, null)(StorySidebar);

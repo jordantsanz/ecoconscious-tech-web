@@ -10,7 +10,7 @@ class HackDukePage extends Component {
   render() {
     return (
       <div className="main-page">
-        <Sidebar />
+        <Sidebar story={false} />
         <div className="flexDuke" id="duke">
           <div className="inner-flex">
             <img id="hackduke-image-1" src={computer} className="animation" alt="computer" />

@@ -9,7 +9,7 @@ class ToolsPage extends Component {
   render() {
     return (
       <div className="main-page" id="tools-main">
-        <Sidebar purple />
+        <Sidebar purple story={false} />
         <div className="flex-tools" id="tools">
           <div className="column-flex">
             <div className="vscode-column">

@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { NavLink } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import StorySidebar from './StorySidebar';
 import www from '../images/www.png';
 import googlebucks from '../images/googlebucks.png';
 import servers from '../images/servers.png';
@@ -17,10 +17,22 @@ import divider34 from '../images/actions.svg';
 import mainpagegif from '../images/mainpagegif.gif';
 
 class StoryPage extends Component {
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef();
+  }
+
+  scrollDown = () => {
+    this.ref.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+    });
+  }
+
   render() {
     return (
       <div className="main-page" id="story-main">
-        <Sidebar />
+        <StorySidebar scroll={this.scrollDown} />
 
         {/* ----------------------------- Page 0 ------------------------------------------ */}
         <div className="flex-landing" id="page-0">
@@ -37,7 +49,7 @@ class StoryPage extends Component {
               <div className="title-landing-top">Our lives are online,</div>
               <div className="title-landing-bottom">our footprint isn&apos;t.</div>
             </div>
-            <div className="description-landing">
+            <div className="description-landing" ref={this.ref}>
               <div className="description" id="description-1">The internet is a huge consumer of energy produced by greenhouse gas emitting sources, such as coal and petroleum.</div>
               <div className="description" id="description-2"><span className="vert-align">It&apos;s estimated that energy usage and carbon footprint of the internet <span className="bold-white">are greater than those of air travel.</span></span></div>
               <div className="description" id="description-3">Not only do our devices need energy to power and cool them,
