@@ -5,6 +5,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { NavLink } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import www from '../images/www.png';
+import googlebucks from '../images/googlebucks.png';
+import servers from '../images/servers.png';
 
 class StoryPage extends Component {
   render() {
@@ -23,7 +26,7 @@ class StoryPage extends Component {
         <div className="flex-landing" id="page-1">
           <div className="left-landing" />
           <div className="main-landing">
-            <div className="animation-landing">Animation</div>
+            <img className="animation-landing" src={www} alt="www walking" id="page-1-image" />
             <div className="title-landing">
               <div className="title-landing-top">Our lives are online,</div>
               <div className="title-landing-bottom">our footprint isn&apos;t.</div>
@@ -41,7 +44,7 @@ class StoryPage extends Component {
         {/* ------------------------------------ Page 2 --------------------------------------- */}
         <div className="flex-landing" id="page-2">
           <div className="main-landing-2">
-            <div className="animation-landing" />
+            <img src={googlebucks} alt="google bucks" className="animation-landing" id="page-2-image" />
             <div className="title-landing">
               <div className="title-landing-top">Google searches</div>
               <div className="title-landing-bottom">aren&apos;t really free.</div>
@@ -59,7 +62,7 @@ class StoryPage extends Component {
 
         <div className="flex-landing" id="page-3">
           <div className="main-landing-3">
-            <div className="animation-landing" />
+            <img src={servers} className="animation-landing" alt="servers surrounded by carbon" id="page-3-image" />
             <div className="title-landing" id="page3">
               <div className="title-landing-top" id="page-3-title-top">Your data is in the</div>
               <div className="title-landing-top">cloud - <span className="title-landing-bottom">of emissions.</span></div>

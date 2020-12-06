@@ -182,8 +182,9 @@ text-align: left;
     height: 100%;
 }
 
+
 #page-1{
-    height: 100vh;
+    height: 125vh;
     width: 100vw;
     background-image: url("images/Wavy\ green.svg");
     z-index: -2;
@@ -226,9 +227,12 @@ color: #000000;
     padding: 5px;
 }
 
-.animation-landing{
-width: 699px;
-height: 110px;
+#page-1-image, #page-2-image, #page-3-image, #page-4-image{
+    width: 400px;
+}
+
+#page-2{
+    height: 125vh;
 }
 
 .description{
@@ -295,7 +299,6 @@ color: white;
     background-image: url("images/Triangle\ Purple.svg");
     z-index: -2;
     position: relative;
-    height: 100%;
     background-position: right;
 }
 
@@ -322,6 +325,9 @@ padding-top: 6px;
 /************************* Page 3 *****************/
 .main-landing-3{
     margin-left: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #page-3{
@@ -329,6 +335,7 @@ padding-top: 6px;
     z-index: -2;
     position: relative;
     background-position: left;
+    height: 105vh;
 }
 
 #description-8{
