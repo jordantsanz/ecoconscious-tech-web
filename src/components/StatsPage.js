@@ -226,7 +226,7 @@ class StatsPage extends Component {
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
     dateAxis.title.text = 'Date';
-    valueAxis.title.text = 'Percent Green Websites Visited:';
+    valueAxis.title.text = 'Green Websites Visits:';
 
     // Create series
     let series = chart.series.push(new am4charts.LineSeries());
@@ -268,7 +268,7 @@ class StatsPage extends Component {
     title.marginBottom = 27;
     title.fontSize = 25;
     title.marginTop = 10;
-    title.text = 'Percent Green Websites Visited Over Time:';
+    title.text = 'Green Websites Visits Over Time:';
     title.fill = '#FFFFFF';
     title.background.fill = '#000000';
     title.fontFamily = 'Aclonica';
