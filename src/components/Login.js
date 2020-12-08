@@ -4,7 +4,7 @@ import { GoogleLogin } from 'react-google-login';
 import { connect } from 'react-redux';
 import { logInUser } from '../actions';
 
-const clientId = '1058585226378-vq0ls50q6b73njifs1qhlvkri55gffbv.apps.googleusercontent.com';
+const clientId = '1058585226378-0kmkappfj9gjahpfm44klrli3b7imt62.apps.googleusercontent.com';
 const refreshTokenSetup = (res) => {
   let refreshTiming = (res.tokenObj.expires_in || 3600 - 5 * 60) * 1000;
 

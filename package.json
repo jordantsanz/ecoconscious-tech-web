@@ -12,7 +12,7 @@
     "license": "MIT",
     "build": "yarn clean; NODE_ENV=production webpack --colors",
     "start": "NODE_ENV=development webpack-dev-server",
-    "deploy": "yarn build; surge -p dist -d ecoconscioustech.surge.sh; yarn clean"
+    "deploy": "yarn build; surge -p dist -d http://ecoconscioustech.surge.sh; yarn clean"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

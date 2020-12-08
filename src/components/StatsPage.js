@@ -38,7 +38,7 @@ class StatsPage extends Component {
   }
 
   async componentDidUpdate() {
-    if (this.props.name != '') {
+    if (this.props.name != '' && !this.state.gauge && !this.state.line && !this.state.pie && !this.state.top) {
       db.getAllWebsitesByUser(this.props.email, this.dataVis);
     }
   }
@@ -285,14 +285,16 @@ class StatsPage extends Component {
   }
 
   columnChart = (webArray) => {
+    console.log(webArray);
     let greenNum = 0;
+    let chart4 = am4core.create('chartdiv4', am4charts.PieChart3D);
     let tot = 0;
     let currentTime = new Date();
     let currentDate = db.splitDate(currentTime.toString());
 
     for (let i = 0; i < webArray.length; i++) {
       webArray[i].date = db.splitDate(webArray[i].timestamp.toDate().toString()); // split dates
-
+      console.log(webArray[i].date);
       if (webArray[i].date == currentDate) { // if current date
         tot += 1;
 
@@ -302,19 +304,36 @@ class StatsPage extends Component {
       }
     }
 
-    let percent = Math.round((greenNum / tot) * 100);
+    console.log(greenNum);
+    console.log(tot);
+    let data;
+    if (tot == 0) {
+      data = [{
+        Green: 'Green',
+        Count: 1,
+      },
+      {
+        Green: 'Not Green',
+        Count: 1,
+      }];
+      let label2 = chart4.chartContainer.createChild(am4core.Label);
+      label2.text = '*No websites tracked today! Visit some more sites to see results.';
+      label2.align = 'center';
+      label2.marginBottom = 20;
+    } else {
+      let percent = Math.round((greenNum / tot) * 100);
 
-    let notGreen = 100 - percent;
-    let data = [{
-      Green: 'Green',
-      Count: percent,
-    },
-    {
-      Green: 'Not Green',
-      Count: notGreen,
-    }];
+      let notGreen = 100 - percent;
+      data = [{
+        Green: 'Green',
+        Count: percent,
+      },
+      {
+        Green: 'Not Green',
+        Count: notGreen,
+      }];
+    }
 
-    let chart4 = am4core.create('chartdiv4', am4charts.PieChart3D);
     chart4.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
     chart4.legend = new am4charts.Legend();
