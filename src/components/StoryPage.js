@@ -105,7 +105,7 @@ class StoryPage extends Component {
               <div className="title-landing-bottom">- take these steps.</div>
             </div>
             <div className="description-landing">
-              <div className="description" id="description-11">Download <span className="underlined-and-bold">the tools on our website</span> to monitor your power usage and reduce time on non-green hosted websites.</div>
+              <div className="description" id="description-11">Download the tools on our website to monitor your power usage and reduce time on non-green hosted websites.</div>
               <div className="description" id="description-12">Choose a green, conscious cloud provider for yourself.</div>
               <div className="description" id="description-13">Unsubscribe from old newsletters you don&apos;t look at.</div>
               <div className="description" id="description-14">Shut off your computer if you&apos;re not going to use it for more than 2 hours and unplug chargers that aren&apos;t in use.</div>
