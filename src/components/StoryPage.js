@@ -110,7 +110,7 @@ class StoryPage extends Component {
               <div className="description" id="description-13">Unsubscribe from old newsletters you don&apos;t look at.</div>
               <div className="description" id="description-14">Shut off your computer if you&apos;re not going to use it for more than 2 hours and unplug chargers that aren&apos;t in use.</div>
             </div>
-            <div className="source">Source: <a href="climatechange.org" className="source">climatechange.org</a></div>
+            <div className="source">Source: <a href="http://www.climatecare.org" className="source">climatecare.org</a></div>
           </div>
         </div>
       </div>
